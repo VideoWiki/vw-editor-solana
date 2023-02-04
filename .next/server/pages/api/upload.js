@@ -1,0 +1,86 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/api/upload";
+exports.ids = ["pages/api/upload"];
+exports.modules = {
+
+/***/ "@solana/web3.js":
+/*!**********************************!*\
+  !*** external "@solana/web3.js" ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = require("@solana/web3.js");
+
+/***/ }),
+
+/***/ "bs58":
+/*!***********************!*\
+  !*** external "bs58" ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = require("bs58");
+
+/***/ }),
+
+/***/ "dotenv":
+/*!*************************!*\
+  !*** external "dotenv" ***!
+  \*************************/
+/***/ ((module) => {
+
+module.exports = require("dotenv");
+
+/***/ }),
+
+/***/ "@metaplex-foundation/js":
+/*!******************************************!*\
+  !*** external "@metaplex-foundation/js" ***!
+  \******************************************/
+/***/ ((module) => {
+
+module.exports = import("@metaplex-foundation/js");;
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "(api)/./pages/api/upload.ts":
+/*!*****************************!*\
+  !*** ./pages/api/upload.ts ***!
+  \*****************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _solana_web3_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @solana/web3.js */ \"@solana/web3.js\");\n/* harmony import */ var _solana_web3_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_solana_web3_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _metaplex_foundation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @metaplex-foundation/js */ \"@metaplex-foundation/js\");\n/* harmony import */ var bs58__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bs58 */ \"bs58\");\n/* harmony import */ var bs58__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bs58__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var dotenv__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dotenv */ \"dotenv\");\n/* harmony import */ var dotenv__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(dotenv__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_4__);\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_metaplex_foundation_js__WEBPACK_IMPORTED_MODULE_1__]);\n_metaplex_foundation_js__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\ndotenv__WEBPACK_IMPORTED_MODULE_3__.config();\n// update these variables!\n// Connection endpoint, switch to a mainnet RPC if using mainnet\nconst ENDPOINT = (0,_solana_web3_js__WEBPACK_IMPORTED_MODULE_0__.clusterApiUrl)(\"devnet\");\n// Devnet Bundlr address\nconst BUNDLR_ADDRESS = \"https://devnet.bundlr.network\";\n// Mainnet Bundlr address, uncomment if using mainnet\n// const BUNDLR_ADDRESS = \"https://node1.bundlr.network\"\n// NFT metadata\nconst NFT_NAME = \"Test\";\nconst NFT_DESCRIPTION = \"Testing using solana pay\";\nconst NFT_IMAGE_PATH = \"nft-upload/testImg.jpg\";\nconst NFT_IMG_NAME = \"testImg.jpg\";\nconst NFT_VIDEO_PATH = \"https://api.video.wiki/media/temporary/2023/01/02/7f3fe67f-73ea-48ba-a331-a6430ad5352b.webm\";\nconst NFT_VID_NAME = \"testVid.webm\";\nvar dataStream;\n// fetch(\n//     \"https://api.video.wiki/media/temporary/2023/01/02/7f3fe67f-73ea-48ba-a331-a6430ad5352b.webm\"\n// ).then(async (response) => {\n//     const contentType = response.headers.get(\"content-type\");\n//     const blob = await response.blob();\n//     const file = new Blob([blob], { type: contentType });\n//     // const file = new File([blob], \"PREVIEW.webm\", { type: contentType });\n//     // setFileSize(file.size);\n//     dataStream = fileReaderStream(file);\n// });\nasync function main() {\n    // Get the shop keypair from the environment variable\n    const shopPrivateKey = \"3rTqFycRK7URNXihwZheXG5i4byaY94fUXE9FdRCZsvjRzR7sGUGhGJsGQc3oV7nkJoHyTcA963qayq2dcvxtdsa\"; /* process.env.SHOP_PRIVATE_KEY */ \n    if (!shopPrivateKey) throw new Error(\"SHOP_PRIVATE_KEY not found\");\n    const shopKeypair = _solana_web3_js__WEBPACK_IMPORTED_MODULE_0__.Keypair.fromSecretKey(bs58__WEBPACK_IMPORTED_MODULE_2___default().decode(shopPrivateKey));\n    const connection = new _solana_web3_js__WEBPACK_IMPORTED_MODULE_0__.Connection(ENDPOINT);\n    const nfts = _metaplex_foundation_js__WEBPACK_IMPORTED_MODULE_1__.Metaplex.make(connection, {\n        cluster: \"devnet\"\n    }).use((0,_metaplex_foundation_js__WEBPACK_IMPORTED_MODULE_1__.keypairIdentity)(shopKeypair)).use((0,_metaplex_foundation_js__WEBPACK_IMPORTED_MODULE_1__.bundlrStorage)({\n        address: BUNDLR_ADDRESS,\n        providerUrl: ENDPOINT,\n        timeout: 60000\n    })).nfts();\n    const imageBuffer = fs__WEBPACK_IMPORTED_MODULE_4__.readFileSync(NFT_IMAGE_PATH);\n    const fileImg = (0,_metaplex_foundation_js__WEBPACK_IMPORTED_MODULE_1__.toMetaplexFile)(imageBuffer, NFT_IMG_NAME);\n    // const videoBuffer = fs.readFileSync(NFT_VIDEO_PATH);\n    // const fileVid = toMetaplexFile(videoBuffer, NFT_VID_NAME);\n    const uploadedMetadata = await nfts.uploadMetadata({\n        name: NFT_NAME,\n        // symbol: NFT_SYMBOL,\n        description: NFT_DESCRIPTION,\n        image: fileImg,\n        video: dataStream\n    });\n    console.log(`Uploaded metadata: ${uploadedMetadata.uri}`);\n    return uploadedMetadata.uri;\n}\nasync function handler(req, res) {\n    if (req.method === \"GET\") {\n        return res.status(200).json({\n            message: \"My Store\"\n        });\n    } else if (req.method === \"POST\") {\n        // const result = await main()\n        console.log(req.body);\n        return res.status(200).json({\n            message: \"Succesfull\"\n        });\n    } else {\n        return res.status(405).json({\n            error: \"Method not allowed\"\n        });\n    }\n};\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvdXBsb2FkLnRzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7QUFDK0U7QUFFd0M7QUFDOUY7QUFJTztBQUNSO0FBQ3hCUSwwQ0FBYTtBQWNiLEVBQTBCO0FBQzFCLEVBQWdFO0FBQ2hFLEtBQUssQ0FBQ0csUUFBUSxHQUFHWCw4REFBYSxDQUFDLENBQVE7QUFFdkMsRUFBd0I7QUFDeEIsS0FBSyxDQUFDWSxjQUFjLEdBQUcsQ0FBK0I7QUFFdEQsRUFBcUQ7QUFDckQsRUFBd0Q7QUFFeEQsRUFBZTtBQUNmLEtBQUssQ0FBQ0MsUUFBUSxHQUFHLENBQU07QUFDdkIsS0FBSyxDQUFDQyxlQUFlLEdBQUcsQ0FBMEI7QUFDbEQsS0FBSyxDQUFDQyxjQUFjLEdBQUcsQ0FBd0I7QUFDL0MsS0FBSyxDQUFDQyxZQUFZLEdBQUcsQ0FBYTtBQUNsQyxLQUFLLENBQUNDLGNBQWMsR0FDaEIsQ0FBNkY7QUFDakcsS0FBSyxDQUFDQyxZQUFZLEdBQUcsQ0FBYztBQVluQyxHQUFHLENBQUNDLFVBQVU7QUFDZCxFQUFTO0FBQ1QsRUFBb0c7QUFDcEcsRUFBK0I7QUFFL0IsRUFBZ0U7QUFDaEUsRUFBMEM7QUFDMUMsRUFBNEQ7QUFDNUQsRUFBK0U7QUFDL0UsRUFBaUM7QUFDakMsRUFBMkM7QUFDM0MsRUFBTTtlQUdTQyxJQUFJLEdBQUcsQ0FBQztJQUNuQixFQUFxRDtJQUNyRCxLQUFLLENBQUNDLGNBQWMsR0FDaEIsQ0FBMEYsMEZBQUUsQ0FBa0M7SUFDbEksRUFBRSxHQUFHQSxjQUFjLEVBQUUsS0FBSyxDQUFDLEdBQUcsQ0FBQ0MsS0FBSyxDQUFDLENBQTRCO0lBQ2pFLEtBQUssQ0FBQ0MsV0FBVyxHQUFHckIsa0VBQXFCLENBQUNLLGtEQUFhLENBQUNjLGNBQWM7SUFFdEUsS0FBSyxDQUFDSyxVQUFVLEdBQUcsR0FBRyxDQUFDekIsdURBQVUsQ0FBQ1UsUUFBUTtJQUUxQyxLQUFLLENBQUNnQixJQUFJLEdBQUdyQixrRUFBYSxDQUFDb0IsVUFBVSxFQUFFLENBQUM7UUFBQ0csT0FBTyxFQUFFLENBQVE7SUFBQyxDQUFDLEVBQ3ZEQyxHQUFHLENBQUN6Qix3RUFBZSxDQUFDa0IsV0FBVyxHQUMvQk8sR0FBRyxDQUNBMUIsc0VBQWEsQ0FBQyxDQUFDO1FBQ1gyQixPQUFPLEVBQUVuQixjQUFjO1FBQ3ZCb0IsV0FBVyxFQUFFckIsUUFBUTtRQUNyQnNCLE9BQU8sRUFBRSxLQUFLO0lBQ2xCLENBQUMsR0FFSk4sSUFBSTtJQUVULEtBQUssQ0FBQ08sV0FBVyxHQUFHekIsNENBQWUsQ0FBQ00sY0FBYztJQUNsRCxLQUFLLENBQUNxQixPQUFPLEdBQUdqQyx1RUFBYyxDQUFDK0IsV0FBVyxFQUFFbEIsWUFBWTtJQUV4RCxFQUF1RDtJQUN2RCxFQUE2RDtJQUU3RCxLQUFLLENBQUNxQixnQkFBZ0IsR0FBRyxLQUFLLENBQUNWLElBQUksQ0FBQ1csY0FBYyxDQUFDLENBQUM7UUFDaERDLElBQUksRUFBRTFCLFFBQVE7UUFDZCxFQUFzQjtRQUN0QjJCLFdBQVcsRUFBRTFCLGVBQWU7UUFDNUIyQixLQUFLLEVBQUVMLE9BQU87UUFDZE0sS0FBSyxFQUFFdkIsVUFBVTtJQUNyQixDQUFDO0lBRUR3QixPQUFPLENBQUNDLEdBQUcsRUFBRSxtQkFBbUIsRUFBRVAsZ0JBQWdCLENBQUNRLEdBQUc7SUFDdEQsTUFBTSxDQUFDUixnQkFBZ0IsQ0FBQ1EsR0FBRztBQUMvQixDQUFDO0FBSWMsZUFBZUMsT0FBTyxDQUNqQ0MsR0FBbUIsRUFDbkJDLEdBQTRELEVBQzlELENBQUM7SUFDQyxFQUFFLEVBQUVELEdBQUcsQ0FBQ0UsTUFBTSxLQUFLLENBQUssTUFBRSxDQUFDO1FBQ3ZCLE1BQU0sQ0FBQ0QsR0FBRyxDQUFDRSxNQUFNLENBQUMsR0FBRyxFQUFFQyxJQUFJLENBQUMsQ0FBQztZQUFDQyxPQUFPLEVBQUUsQ0FBVTtRQUFDLENBQUM7SUFDdkQsQ0FBQyxNQUFNLEVBQUUsRUFBRUwsR0FBRyxDQUFDRSxNQUFNLEtBQUssQ0FBTSxPQUFFLENBQUM7UUFDL0IsRUFBOEI7UUFDOUJOLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDRyxHQUFHLENBQUNNLElBQUk7UUFDcEIsTUFBTSxDQUFDTCxHQUFHLENBQUNFLE1BQU0sQ0FBQyxHQUFHLEVBQUVDLElBQUksQ0FBQyxDQUFDO1lBQUNDLE9BQU8sRUFBRSxDQUFZO1FBQUMsQ0FBQztJQUN6RCxDQUFDLE1BQU0sQ0FBQztRQUNKLE1BQU0sQ0FBQ0osR0FBRyxDQUFDRSxNQUFNLENBQUMsR0FBRyxFQUFFQyxJQUFJLENBQUMsQ0FBQztZQUFDRyxLQUFLLEVBQUUsQ0FBb0I7UUFBQyxDQUFDO0lBQy9ELENBQUM7QUFDTCxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbmV4dGpzLXRhaWx3aW5kY3NzLXR5cGVzY3JpcHQtc3RhcnRlci8uL3BhZ2VzL2FwaS91cGxvYWQudHM/NjBlOCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBOZXh0QXBpUmVxdWVzdCwgTmV4dEFwaVJlc3BvbnNlIH0gZnJvbSBcIm5leHRcIlxyXG5pbXBvcnQgeyBjbHVzdGVyQXBpVXJsLCBDb25uZWN0aW9uLCBLZXlwYWlyLCBQdWJsaWNLZXkgfSBmcm9tIFwiQHNvbGFuYS93ZWIzLmpzXCJcclxuaW1wb3J0IHsgZ2V0T3JDcmVhdGVBc3NvY2lhdGVkVG9rZW5BY2NvdW50LCBjcmVhdGVUcmFuc2ZlckNoZWNrZWRJbnN0cnVjdGlvbiwgZ2V0TWludCB9IGZyb20gXCJAc29sYW5hL3NwbC10b2tlblwiXHJcbmltcG9ydCB7IHRvTWV0YXBsZXhGaWxlLCBidW5kbHJTdG9yYWdlLCBHdWVzdElkZW50aXR5RHJpdmVyLCBrZXlwYWlySWRlbnRpdHksIE1ldGFwbGV4IH0gZnJvbSBcIkBtZXRhcGxleC1mb3VuZGF0aW9uL2pzXCJcclxuaW1wb3J0IGJhc2U1OCBmcm9tICdiczU4J1xyXG5pbXBvcnQgeyBCbG9iIH0gZnJvbSAnYmxvYic7XHJcblxyXG5pbXBvcnQgZmlsZVJlYWRlclN0cmVhbSBmcm9tIFwiZmlsZXJlYWRlci1zdHJlYW1cIjtcclxuaW1wb3J0ICogYXMgZG90ZW52IGZyb20gXCJkb3RlbnZcIjtcclxuaW1wb3J0ICogYXMgZnMgZnJvbSBcImZzXCI7XHJcbmRvdGVudi5jb25maWcoKTtcclxuXHJcbnR5cGUgR2V0UmVzcG9uc2UgPSB7XHJcbiAgICBtZXNzYWdlOiBzdHJpbmcsXHJcbn1cclxuXHJcbmV4cG9ydCB0eXBlIFBvc3RSZXNwb25zZSA9IHtcclxuICAgIG1lc3NhZ2U6IHN0cmluZyxcclxufVxyXG5cclxuZXhwb3J0IHR5cGUgUG9zdEVycm9yID0ge1xyXG4gICAgZXJyb3I6IHN0cmluZ1xyXG59XHJcblxyXG4vLyB1cGRhdGUgdGhlc2UgdmFyaWFibGVzIVxyXG4vLyBDb25uZWN0aW9uIGVuZHBvaW50LCBzd2l0Y2ggdG8gYSBtYWlubmV0IFJQQyBpZiB1c2luZyBtYWlubmV0XHJcbmNvbnN0IEVORFBPSU5UID0gY2x1c3RlckFwaVVybChcImRldm5ldFwiKTtcclxuXHJcbi8vIERldm5ldCBCdW5kbHIgYWRkcmVzc1xyXG5jb25zdCBCVU5ETFJfQUREUkVTUyA9IFwiaHR0cHM6Ly9kZXZuZXQuYnVuZGxyLm5ldHdvcmtcIjtcclxuXHJcbi8vIE1haW5uZXQgQnVuZGxyIGFkZHJlc3MsIHVuY29tbWVudCBpZiB1c2luZyBtYWlubmV0XHJcbi8vIGNvbnN0IEJVTkRMUl9BRERSRVNTID0gXCJodHRwczovL25vZGUxLmJ1bmRsci5uZXR3b3JrXCJcclxuXHJcbi8vIE5GVCBtZXRhZGF0YVxyXG5jb25zdCBORlRfTkFNRSA9IFwiVGVzdFwiO1xyXG5jb25zdCBORlRfREVTQ1JJUFRJT04gPSBcIlRlc3RpbmcgdXNpbmcgc29sYW5hIHBheVwiO1xyXG5jb25zdCBORlRfSU1BR0VfUEFUSCA9IFwibmZ0LXVwbG9hZC90ZXN0SW1nLmpwZ1wiO1xyXG5jb25zdCBORlRfSU1HX05BTUUgPSBcInRlc3RJbWcuanBnXCI7XHJcbmNvbnN0IE5GVF9WSURFT19QQVRIID1cclxuICAgIFwiaHR0cHM6Ly9hcGkudmlkZW8ud2lraS9tZWRpYS90ZW1wb3JhcnkvMjAyMy8wMS8wMi83ZjNmZTY3Zi03M2VhLTQ4YmEtYTMzMS1hNjQzMGFkNTM1MmIud2VibVwiO1xyXG5jb25zdCBORlRfVklEX05BTUUgPSBcInRlc3RWaWQud2VibVwiO1xyXG5cclxuaW50ZXJmYWNlIEZpbGUgZXh0ZW5kcyBCbG9iIHtcclxuICAgIHJlYWRvbmx5IGxhc3RNb2RpZmllZDogbnVtYmVyO1xyXG4gICAgcmVhZG9ubHkgbmFtZTogc3RyaW5nO1xyXG59XHJcblxyXG5kZWNsYXJlIHZhciBGaWxlOiB7XHJcbiAgICBwcm90b3R5cGU6IEZpbGU7XHJcbiAgICBuZXcoZmlsZUJpdHM6IEJsb2JQYXJ0W10sIGZpbGVOYW1lOiBzdHJpbmcsIG9wdGlvbnM/OiBGaWxlUHJvcGVydHlCYWcpOiBGaWxlO1xyXG59O1xyXG5cclxudmFyIGRhdGFTdHJlYW07XHJcbi8vIGZldGNoKFxyXG4vLyAgICAgXCJodHRwczovL2FwaS52aWRlby53aWtpL21lZGlhL3RlbXBvcmFyeS8yMDIzLzAxLzAyLzdmM2ZlNjdmLTczZWEtNDhiYS1hMzMxLWE2NDMwYWQ1MzUyYi53ZWJtXCJcclxuLy8gKS50aGVuKGFzeW5jIChyZXNwb25zZSkgPT4ge1xyXG4gICAgXHJcbi8vICAgICBjb25zdCBjb250ZW50VHlwZSA9IHJlc3BvbnNlLmhlYWRlcnMuZ2V0KFwiY29udGVudC10eXBlXCIpO1xyXG4vLyAgICAgY29uc3QgYmxvYiA9IGF3YWl0IHJlc3BvbnNlLmJsb2IoKTtcclxuLy8gICAgIGNvbnN0IGZpbGUgPSBuZXcgQmxvYihbYmxvYl0sIHsgdHlwZTogY29udGVudFR5cGUgfSk7XHJcbi8vICAgICAvLyBjb25zdCBmaWxlID0gbmV3IEZpbGUoW2Jsb2JdLCBcIlBSRVZJRVcud2VibVwiLCB7IHR5cGU6IGNvbnRlbnRUeXBlIH0pO1xyXG4vLyAgICAgLy8gc2V0RmlsZVNpemUoZmlsZS5zaXplKTtcclxuLy8gICAgIGRhdGFTdHJlYW0gPSBmaWxlUmVhZGVyU3RyZWFtKGZpbGUpO1xyXG4vLyB9KTtcclxuXHJcblxyXG5hc3luYyBmdW5jdGlvbiBtYWluKCkge1xyXG4gICAgLy8gR2V0IHRoZSBzaG9wIGtleXBhaXIgZnJvbSB0aGUgZW52aXJvbm1lbnQgdmFyaWFibGVcclxuICAgIGNvbnN0IHNob3BQcml2YXRlS2V5ID1cclxuICAgICAgICBcIjNyVHFGeWNSSzdVUk5YaWh3WmhlWEc1aTRieWFZOTRmVVhFOUZkUkNac3ZqUnpSN3NHVUdoR0pzR1FjM29WN25rSm9IeVRjQTk2M3FheXEyZGN2eHRkc2FcIjsgLyogcHJvY2Vzcy5lbnYuU0hPUF9QUklWQVRFX0tFWSAqL1xyXG4gICAgaWYgKCFzaG9wUHJpdmF0ZUtleSkgdGhyb3cgbmV3IEVycm9yKFwiU0hPUF9QUklWQVRFX0tFWSBub3QgZm91bmRcIik7XHJcbiAgICBjb25zdCBzaG9wS2V5cGFpciA9IEtleXBhaXIuZnJvbVNlY3JldEtleShiYXNlNTguZGVjb2RlKHNob3BQcml2YXRlS2V5KSk7XHJcblxyXG4gICAgY29uc3QgY29ubmVjdGlvbiA9IG5ldyBDb25uZWN0aW9uKEVORFBPSU5UKTtcclxuXHJcbiAgICBjb25zdCBuZnRzID0gTWV0YXBsZXgubWFrZShjb25uZWN0aW9uLCB7IGNsdXN0ZXI6IFwiZGV2bmV0XCIgfSlcclxuICAgICAgICAudXNlKGtleXBhaXJJZGVudGl0eShzaG9wS2V5cGFpcikpXHJcbiAgICAgICAgLnVzZShcclxuICAgICAgICAgICAgYnVuZGxyU3RvcmFnZSh7XHJcbiAgICAgICAgICAgICAgICBhZGRyZXNzOiBCVU5ETFJfQUREUkVTUyxcclxuICAgICAgICAgICAgICAgIHByb3ZpZGVyVXJsOiBFTkRQT0lOVCxcclxuICAgICAgICAgICAgICAgIHRpbWVvdXQ6IDYwMDAwLFxyXG4gICAgICAgICAgICB9KVxyXG4gICAgICAgIClcclxuICAgICAgICAubmZ0cygpO1xyXG5cclxuICAgIGNvbnN0IGltYWdlQnVmZmVyID0gZnMucmVhZEZpbGVTeW5jKE5GVF9JTUFHRV9QQVRIKTtcclxuICAgIGNvbnN0IGZpbGVJbWcgPSB0b01ldGFwbGV4RmlsZShpbWFnZUJ1ZmZlciwgTkZUX0lNR19OQU1FKTtcclxuXHJcbiAgICAvLyBjb25zdCB2aWRlb0J1ZmZlciA9IGZzLnJlYWRGaWxlU3luYyhORlRfVklERU9fUEFUSCk7XHJcbiAgICAvLyBjb25zdCBmaWxlVmlkID0gdG9NZXRhcGxleEZpbGUodmlkZW9CdWZmZXIsIE5GVF9WSURfTkFNRSk7XHJcblxyXG4gICAgY29uc3QgdXBsb2FkZWRNZXRhZGF0YSA9IGF3YWl0IG5mdHMudXBsb2FkTWV0YWRhdGEoe1xyXG4gICAgICAgIG5hbWU6IE5GVF9OQU1FLFxyXG4gICAgICAgIC8vIHN5bWJvbDogTkZUX1NZTUJPTCxcclxuICAgICAgICBkZXNjcmlwdGlvbjogTkZUX0RFU0NSSVBUSU9OLFxyXG4gICAgICAgIGltYWdlOiBmaWxlSW1nLFxyXG4gICAgICAgIHZpZGVvOiBkYXRhU3RyZWFtLFxyXG4gICAgfSk7XHJcblxyXG4gICAgY29uc29sZS5sb2coYFVwbG9hZGVkIG1ldGFkYXRhOiAke3VwbG9hZGVkTWV0YWRhdGEudXJpfWApO1xyXG4gICAgcmV0dXJuIHVwbG9hZGVkTWV0YWRhdGEudXJpXHJcbn1cclxuXHJcblxyXG5cclxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlcihcclxuICAgIHJlcTogTmV4dEFwaVJlcXVlc3QsXHJcbiAgICByZXM6IE5leHRBcGlSZXNwb25zZTxHZXRSZXNwb25zZSB8IFBvc3RSZXNwb25zZSB8IFBvc3RFcnJvcj5cclxuKSB7XHJcbiAgICBpZiAocmVxLm1ldGhvZCA9PT0gXCJHRVRcIikge1xyXG4gICAgICAgIHJldHVybiByZXMuc3RhdHVzKDIwMCkuanNvbih7IG1lc3NhZ2U6IFwiTXkgU3RvcmVcIiB9KVxyXG4gICAgfSBlbHNlIGlmIChyZXEubWV0aG9kID09PSBcIlBPU1RcIikge1xyXG4gICAgICAgIC8vIGNvbnN0IHJlc3VsdCA9IGF3YWl0IG1haW4oKVxyXG4gICAgICAgIGNvbnNvbGUubG9nKHJlcS5ib2R5KVxyXG4gICAgICAgIHJldHVybiByZXMuc3RhdHVzKDIwMCkuanNvbih7IG1lc3NhZ2U6IFwiU3VjY2VzZnVsbFwiIH0pXHJcbiAgICB9IGVsc2Uge1xyXG4gICAgICAgIHJldHVybiByZXMuc3RhdHVzKDQwNSkuanNvbih7IGVycm9yOiBcIk1ldGhvZCBub3QgYWxsb3dlZFwiIH0pXHJcbiAgICB9XHJcbn1cclxuIl0sIm5hbWVzIjpbImNsdXN0ZXJBcGlVcmwiLCJDb25uZWN0aW9uIiwiS2V5cGFpciIsInRvTWV0YXBsZXhGaWxlIiwiYnVuZGxyU3RvcmFnZSIsImtleXBhaXJJZGVudGl0eSIsIk1ldGFwbGV4IiwiYmFzZTU4IiwiZG90ZW52IiwiZnMiLCJjb25maWciLCJFTkRQT0lOVCIsIkJVTkRMUl9BRERSRVNTIiwiTkZUX05BTUUiLCJORlRfREVTQ1JJUFRJT04iLCJORlRfSU1BR0VfUEFUSCIsIk5GVF9JTUdfTkFNRSIsIk5GVF9WSURFT19QQVRIIiwiTkZUX1ZJRF9OQU1FIiwiZGF0YVN0cmVhbSIsIm1haW4iLCJzaG9wUHJpdmF0ZUtleSIsIkVycm9yIiwic2hvcEtleXBhaXIiLCJmcm9tU2VjcmV0S2V5IiwiZGVjb2RlIiwiY29ubmVjdGlvbiIsIm5mdHMiLCJtYWtlIiwiY2x1c3RlciIsInVzZSIsImFkZHJlc3MiLCJwcm92aWRlclVybCIsInRpbWVvdXQiLCJpbWFnZUJ1ZmZlciIsInJlYWRGaWxlU3luYyIsImZpbGVJbWciLCJ1cGxvYWRlZE1ldGFkYXRhIiwidXBsb2FkTWV0YWRhdGEiLCJuYW1lIiwiZGVzY3JpcHRpb24iLCJpbWFnZSIsInZpZGVvIiwiY29uc29sZSIsImxvZyIsInVyaSIsImhhbmRsZXIiLCJyZXEiLCJyZXMiLCJtZXRob2QiLCJzdGF0dXMiLCJqc29uIiwibWVzc2FnZSIsImJvZHkiLCJlcnJvciJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./pages/api/upload.ts\n");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../webpack-api-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/upload.ts"));
+module.exports = __webpack_exports__;
+
+})();
